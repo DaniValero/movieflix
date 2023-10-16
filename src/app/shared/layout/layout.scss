@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+}
+
+.top-bar {
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(7, 41, 82);
+  background: linear-gradient(218deg, rgba(7, 41, 82, 1) 0%, rgba(23, 50, 153, 1) 31%, rgba(49, 89, 144, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 1;
+
+}
+
+.top-menu {
+  display: flex;
+
+  div {
+    margin-left: 15px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  div:hover {
+    background-color: rgb(7, 41, 82);
+  }
+}
+
+.admin-button{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.logo {
+  cursor: pointer;
+  
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+  margin-top: 50px;
+
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  top: 95px;
+  padding: 10px;
+  left: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 5vh;
+  margin-left: 200px;
+}
+
+.menu-title {
+  
+  width: 200px;
+  border-radius: 15px;
+  margin-bottom: -20px;
+}
+
+hr {
+  max-width: 200px;
+  margin-right: 50px;
+}

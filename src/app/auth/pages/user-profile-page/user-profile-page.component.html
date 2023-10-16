@@ -1,0 +1,76 @@
+<div class="flex-container">
+  <h2 id="page-title" i18n>{{ 'welcomeBack' | transloco }}, {{userName}}</h2>
+  <div class="button-container">
+    <p-button (click)="toggleUserDetails()"><i class="bi bi-person-gear mr-2"></i> {{ 'editDetails' | transloco
+      }}</p-button>
+  </div>
+</div>
+
+
+<div *ngIf="showUserDetails">
+  <form [formGroup]="userDetailsForm!" class="form-container">
+    <h3 class="text-center" i18n>{{ 'updateInfo' | transloco }}</h3>
+
+    <label class="mb-2" htmlFor="name" i18n>{{ 'name' | transloco }}</label>
+    <input type="text" pInputText formControlName="name">
+
+    <span *ngIf="userDetailsForm!.get('name')?.hasError('required') && userDetailsForm!.get('name')?.touched"
+      class="error-message" i18n>
+      {{ 'nameRequired' | transloco }}
+    </span>
+
+    <label class="mb-2" htmlFor="email" i18n>{{ 'email' | transloco }}</label>
+    <input type="text" pInputText formControlName="email">
+    <span *ngIf="userDetailsForm!.get('email')?.hasError('required') && userDetailsForm!.get('email')?.touched"
+      class="error-message" i18n>
+      {{ 'emailRequired' | transloco }}
+    </span>
+    <span *ngIf="userDetailsForm!.get('email')?.hasError('required') && userDetailsForm!.get('email')?.touched"
+      class="error-message mt-2" i18n>
+      {{ 'emailFormatRequired' | transloco }}
+    </span>
+
+    <label class="mb-2" htmlFor="password" i18n>{{ 'password' | transloco }}</label>
+    <input type="password" pInputText formControlName="password" />
+
+    <span *ngIf="userDetailsForm!.get('password')?.hasError('required') && userDetailsForm!.get('password')?.touched"
+      class="error-message" i18n>
+      {{ 'passwordRequired' | transloco }}
+    </span>
+    <span *ngIf="userDetailsForm!.get('password')?.hasError('minlength') && userDetailsForm!.get('password')?.touched"
+      class="error-message" i18n>
+      {{ 'passwordMinLength' | transloco }}
+    </span>
+
+
+
+    <label class="mb-2" htmlFor="password2" i18n>{{ 'confirmPassword' | transloco }}</label>
+    <input type="password" pInputText formControlName="password2" />
+    <span
+      *ngIf="userDetailsForm!.get('password2') !== userDetailsForm!.get('password') && userDetailsForm!.get('password2')?.touched"
+      class="error-message" i18n>
+      {{ 'passwordsMustMatch' | transloco }}
+    </span>
+
+    <p-toast></p-toast>
+    <p-button type="button" class="align-self-center" (click)="saveUserDetails()" i18n><i
+        class="bi bi-person-check-fill mr-2"></i> {{ 'save' | transloco }}</p-button>
+  </form>
+
+</div>
+
+
+<div *ngIf="movies.length">
+  <h2 class="ml-4" i18n>{{ 'favoriteMovies' | transloco }}</h2>
+  <card-list [movies]="movies"></card-list>
+</div>
+
+
+<div *ngIf="series.length">
+  <h2 class="ml-4" i18n>{{ 'favoriteSeries' | transloco }}</h2>
+  <card-list [series]="series"></card-list>
+</div>
+
+<div *ngIf="series.length === 0 && movies.length === 0">
+  <h2 class="ml-4">{{'noFavorites' | transloco}}</h2>
+</div>

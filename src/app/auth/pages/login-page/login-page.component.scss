@@ -1,0 +1,20 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff15;
+  min-width: 20vw;
+  margin-top: 20px;
+  padding: 40px;
+
+  input {
+    background-color: var(--highlight-bg);
+    border: rgba(0, 0, 0, 0.664);
+    margin-bottom: 30px;
+    
+  }
+  
+
+}

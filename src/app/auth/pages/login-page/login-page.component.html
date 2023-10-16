@@ -1,0 +1,21 @@
+<div class="flex flex-column justify-content-center align-items-center">
+
+  <h2 class="mt-7" i18n>{{ 'accountLogin' | transloco }}</h2>
+
+  <form [formGroup]="loginForm!" (ngSubmit)="onLogin()" class="form-container">
+
+    <label class="mb-2" for="email" i18n>{{ 'email' | transloco }}:</label>
+    <input type="email" pInputText formControlName="email" />
+
+    <label class="mb-2" for="password" i18n>{{ 'password' | transloco }}:</label>
+    <input type="password" pInputText formControlName="password">
+
+    <p-toast></p-toast>
+    <p-button class="align-self-center" type="submit" (onClick)="onLogin()" i18n>{{ 'login' | transloco }}</p-button>
+
+  </form>
+
+  <div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/register" i18n>{{ 'noAccount' | transloco }}</a>
+  </div>
+</div>

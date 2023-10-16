@@ -1,0 +1,9 @@
+<h2 class="mt-7 text-center" id="page-title">{{"mostPopularSeries" | transloco}}</h2>
+
+
+<card-list [series]="series"></card-list>
+
+<div class="card flex justify-content-center">
+  <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="100"
+    [pageLinkSize]="5"></p-paginator>
+</div>

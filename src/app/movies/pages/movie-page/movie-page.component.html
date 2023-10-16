@@ -1,0 +1,65 @@
+<div *ngIf="movie$ | async as movie" class="flex flex-column container" id="scroll-anchor">
+
+  <div class="flex justify-content-between">
+    <h1>{{ movie.title }}</h1>
+
+    <div *ngIf="favorite; else notFavorite" class="flex justify-content-between mt-2">
+      <div i18n class="m-2 favorite-button-true" (click)="toggleFavorite()">
+        {{ 'removeFavorite' | transloco }} <i class="bi bi-heart-fill"></i>
+      </div>
+
+    </div>
+
+  </div>
+
+  <ng-template #notFavorite>
+    <div i18n class="m-2 favorite-button-false" (click)="toggleFavorite()">
+      {{ 'addToFavorites' | transloco }} <i class="bi bi-heart"></i></div>
+  </ng-template>
+
+
+  <div class="mb-2">
+    <p-chip class="mr-2" *ngFor="let genre of genres$ | async">{{ genre.name }}</p-chip>
+
+  </div>
+
+  <div class="flex justify-content-between">
+    <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" [alt]="movie.title">
+
+    <div class="p-3">
+      <div class="p-3 text-center flex flex-column">
+        <p>{{ movie.overview }}</p>
+      </div>
+
+      <div class="flex justify-content-around" *ngIf="trailer$ | async as trailer">
+        <div class="movie-data">
+          <p class="mt-5">"{{ movie.tagline }}"</p>
+          <p i18n>{{ 'rating' | transloco }}: {{ movie.vote_average }}</p>
+          <p i18n>{{ 'runtime' | transloco }}: {{ movie.runtime }}'</p>
+          <p i18n>{{ 'releaseDate' | transloco }}: {{ movie.release_date }}</p>
+          <p i18n>{{ 'popularityScore' | transloco }}: {{ movie.popularity }}</p>
+
+        </div>
+
+        <div>
+          <h3 class="text-center" i18n>{{ 'watchTrailer' | transloco }}</h3>
+          <iframe width="560" height="315" [src]="getTrailerUrl(trailer[0].key)" frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h2 i18n>{{ 'cast' | transloco }}</h2>
+    <div class="flex flex-wrap justify-content-around">
+      <div class="card" *ngFor="let actor of cast$ | async">
+        <img src="https://image.tmdb.org/t/p/w500{{ actor.profile_path }}" alt="{{ actor.name }}">
+        <div class="card-body">
+          <p i18n><strong>{{ actor.name }}</strong> as <em>{{ actor.character}}</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

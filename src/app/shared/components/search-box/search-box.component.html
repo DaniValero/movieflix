@@ -1,0 +1,12 @@
+<input *ngIf="searchOption === 'name'" (keyup)="onKeyPress(txtInput.value)" type="text" [placeholder]="placeholder" #txtInput>
+<select name="search" id="search" (change)="onSearchOptionChange($event)" class="mr-2">
+  <option value="name" selected i18n>By name</option>
+  <option value="genre" i18n>By genre</option>
+</select>
+
+<ng-container *ngIf="searchOption === 'genre'">
+  <select name="genre" id="genre" (change)="setGenre($event)">
+    <option value="null" i18n> --Select a Genre -- </option>
+    <option *ngFor="let genre of genres" value="{{genre.id}}">{{genre.name}}</option>
+  </select>
+</ng-container>

@@ -1,0 +1,27 @@
+:root {
+  background: rgb(7, 41, 82);
+  background: linear-gradient(218deg, rgba(7, 41, 82, 1) 0%, rgba(23, 50, 153, 1) 31%, rgba(49, 89, 144, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.p-toolbar, .p-card, .p-menu, .p-paginator, .p-dropdown {
+  background-color: var(--highlight-bg);
+  border: none;
+}
+
+select {
+  background-color: var(--highlight-bg);
+  color: rgb(224, 224, 224);
+  border: none;
+  border-radius: 15px;
+  padding: 5px
+}
+
+option {
+  background-color: var(--highlight-bg);
+  color: rgb(0, 0, 0);
+}
+
+

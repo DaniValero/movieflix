@@ -1,0 +1,30 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff15;
+  max-width: 30vw;
+  margin-top: 20px;
+  padding: 40px;
+  margin: 0 auto;
+
+  input {
+    background-color: var(--highlight-bg);
+    border: rgba(0, 0, 0, 0.664);
+    margin-bottom: 30px;
+  }
+}
+
+.error-message {
+  color: red;
+  margin-top: -20px;
+}

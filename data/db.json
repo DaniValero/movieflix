@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "name": "Pepe",
+      "email": "pepe@gmail.com",
+      "password": "123abc",
+      "id": 2,
+      "favoriteMovies": [
+        240
+      ],
+      "favoriteSeries": [
+        1396
+      ],
+      "isAdmin": true
+    }
+  ]
+}

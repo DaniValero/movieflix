@@ -1,0 +1,51 @@
+<div class="flex flex-column justify-content-center align-items-center">
+
+  <h2 class="mt-7" i18n>{{ 'createAccount' | transloco }}</h2>
+  <form [formGroup]="registerForm!" (ngSubmit)="onRegister()" class="form-container">
+
+    <label class="mb-2" htmlFor="name" i18n>{{ 'name' | transloco }}</label>
+    <input type="text" pInputText formControlName="name" />
+    <span *ngIf="registerForm!.get('name')?.hasError('required') && registerForm!.get('name')?.touched"
+      class="error-message" i18n>
+      {{ 'nameRequired' | transloco }}
+    </span>
+
+    <label class="mb-2" htmlFor="email">{{ 'email' | transloco }}</label>
+    <input type="email" pInputText formControlName="email" />
+    <span *ngIf="registerForm!.get('email')?.hasError('required') && registerForm!.get('email')?.touched"
+      class="error-message" i18n>
+      {{ 'emailRequired' | transloco }}
+    </span>
+    <span *ngIf="registerForm!.get('email')?.hasError('required') && registerForm!.get('email')?.touched"
+      class="error-message mt-2" i18n>
+      {{ 'emailFormatRequired' | transloco }}
+    </span>
+
+    <label class="mb-2" htmlFor="password" i18n>{{ 'password' | transloco }}</label>
+    <input type="password" pInputText formControlName="password" />
+    <span *ngIf="registerForm!.get('password')?.hasError('required') && registerForm!.get('password')?.touched"
+      class="error-message" i18n>
+      {{ 'passwordRequired' | transloco }}
+    </span>
+    <span *ngIf="registerForm!.get('password')?.hasError('minlength') && registerForm!.get('password')?.touched"
+      class="error-message" i18n>
+      {{ 'passwordMinLength' | transloco }}
+    </span>
+
+    <label class="mb-2" htmlFor="password2" i18n>{{ 'confirmPassword' | transloco }}</label>
+    <input type="password" pInputText formControlName="password2" />
+    <span
+      *ngIf="registerForm!.get('password2') !== registerForm!.get('password') && registerForm!.get('password2')?.touched"
+      class="error-message" i18n>
+      {{ 'passwordsMustMatch' | transloco }}
+    </span>
+
+    <p-toast></p-toast>
+    <p-button class="align-self-center" (onClick)="onRegister()" i18n>{{ 'register' | transloco }}</p-button>
+
+  </form>
+
+  <div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/login" i18n>{{ 'alreadyHaveAccount' | transloco }}</a>
+  </div>
+</div>

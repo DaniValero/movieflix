@@ -1,0 +1,67 @@
+<div class="flex flex-column justify-content-center align-items-center">
+
+  <h1 class="text-center" i18n>{{ 'adminPanel' | transloco }}</h1>
+
+  <div class="card p-2" *ngIf="editMode === false">
+    <p-table [value]="users" styleClass="p-datatable-striped" [tableStyle]="{'width': '40rem'}">
+      <ng-template pTemplate="header">
+        <tr style="margin: 0 auto;">
+          <th class="p-text-center" i18n>{{ 'name' | transloco }}</th>
+          <th class="p-text-center" i18n>{{ 'email' | transloco }}</th>
+          <th class="p-text-center" i18n>{{ 'admin' | transloco }}</th>
+          <th class="p-text-center" i18n>{{ 'actions' | transloco }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td *ngIf="user.isAdmin"><i class="bi bi-check-lg"></i></td>
+          <td *ngIf="!user.isAdmin"><i class="bi bi-x-lg"></i></td>
+          <td class="flex justify-content-around">
+            <p-button (onClick)="editUser(user.id)" styleClass="p-button-warning">
+              <i class="bi bi-pencil-fill"></i>
+            </p-button>
+
+            <p-button (onClick)="confirmDelete(user.id)" styleClass="p-button-danger"><i
+                class="bi bi-x-circle"></i></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+
+  <div class="p-3 flex flex-column justify-content-center align-items-center" *ngIf="editMode">
+
+    <h2 i18n>{{ 'editUser' | transloco }}</h2>
+
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="form-container">
+
+
+      <label class="mb-2" for="name" i18n>{{ 'name' | transloco }}:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="user!.name" required>
+
+
+      <label class="mb-2" for="email" i18n>{{ 'email' | transloco }}:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user!.email" required>
+
+
+      <label for="name" i18n>{{ 'admin' | transloco }}:</label>
+      <p-toggleButton [(ngModel)]="user!.isAdmin" [ngModelOptions]="{standalone: true}" i18n onLabel="Yes" offLabel="No"
+        class="admin-toggle"></p-toggleButton>
+
+
+
+      <div class="flex justify-content-around mt-3">
+        <p-button type="submit" i18n>{{ 'save' | transloco }}</p-button>
+        <p-button (click)="exitForm()" styleClass="p-button-warning" i18n>{{ 'cancel' | transloco }}</p-button>
+      </div>
+    </form>
+    <p-toast></p-toast>
+  </div>
+
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

@@ -1,0 +1,78 @@
+.poster {
+  max-width: 20vw;
+  border-radius: 15px;
+}
+
+.season {
+  width: 40vw;
+  background-color: var(--highlight-bg);
+  border-radius: 15px;
+  .season-poster {
+    max-width: 10vw;
+    border-radius: 15px;
+  }
+}
+
+.episode-poster {
+  width: 20vw;
+  border-radius: 15px;
+}
+
+.currently-airing{
+  background-color: green;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.currently-finished {
+  background-color: rgb(172, 16, 16);
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.favorite-button-false,
+.favorite-button-true {
+  background-color: var(--highlight-bg);
+  max-width: 10vw;
+  text-align: center;
+  border-radius: 25px;
+  padding: 1.5rem;
+}
+
+.favorite-button-false:hover,
+.favorite-button-true:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.last-episode {
+  background-color: var(--highlight-bg);
+  border-radius: 15px;
+  padding-bottom: 20px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  max-width: 10vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-wrap: wrap;
+  background-color: rgba(240, 255, 255, 0.151);
+
+  img {
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+}

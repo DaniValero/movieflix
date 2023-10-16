@@ -1,0 +1,55 @@
+.movie-poster {
+  max-width: 20vw;
+  border-radius: 15px;
+}
+
+.favorite-button-false,
+.favorite-button-true{
+  background-color: var(--highlight-bg);
+  max-width: 10vw;
+  text-align: center;
+  border-radius: 25px;
+  padding: 1.5rem;
+}
+
+.favorite-button-false:hover,
+.favorite-button-true:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  max-width: 10vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-wrap: wrap;
+  background-color: rgba(240, 255, 255, 0.151);
+
+  img {
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+}
+
+.trailer-wrapper {
+  background-color: var(--highlight-bg);
+  padding-bottom: 20px;
+  border-radius: 25px;
+  max-width: 70%;
+  margin: 0px auto;
+}
+
+.movie-data {
+  margin: auto 0
+}

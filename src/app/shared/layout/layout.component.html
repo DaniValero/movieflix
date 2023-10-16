@@ -1,0 +1,68 @@
+<div class="top-bar" >
+  <p-toolbar>
+    <h3 [routerLink]="['/movies/popular']" class="logo"><i class="bi bi-film"></i> Movieflix</h3>
+    <shared-search-box (onDebounce)="searchItem($event)" placeholder="Search..."></shared-search-box>
+  
+    <ng-container *ngIf="isAuthenticated; else guestUser">
+      <div class="p-toolbar-group-right top-menu">
+        <div [routerLink]="['/movies/popular']"><i class="bi bi-house-fill"></i> Home</div>
+        <div><app-language-selector></app-language-selector></div>
+        <div (click)="navigateToProfile()"><i class="bi bi-person-fill"></i> Profile</div>
+        <div (click)="logout()"><i class="bi bi-box-arrow-right"></i> Logout</div>
+      </div>
+    </ng-container>
+  </p-toolbar>
+</div>
+  
+<ng-template #guestUser>
+  <div class="p-toolbar-group-right top-menu">
+    <div [routerLink]="['/']"><i class="bi bi-house-fill"></i> Home</div>
+    <div (click)="navigateToLogin()"><i class="bi bi-key-fill"></i> Login</div>
+  </div>
+</ng-template>
+
+<div class="container" >
+
+  <div class="layout">
+    
+    <div class="sidebar mt-auto">
+      <div class="menu-title">
+        <h3>Movies</h3>
+      </div>
+      <hr>
+      <p-menu [model]="movieItems" class="menuitems">
+        <ng-template let-item pTemplate="item">
+          <a [routerLink]="item.routerLink" routerLinkActive="active">
+            <i class="bi {{ item.icon }}"></i>
+            {{ item.label }}
+          </a>
+        </ng-template>
+      </p-menu>
+    </div>
+
+    <div class="sidebar" style="margin-top: 230px;">
+      <div class="menu-title">
+        <h3>Series</h3>
+      </div>
+      <hr>
+      <p-menu [model]="seriesItems" class="menuitems">
+        <ng-template let-item pTemplate="item">
+          <a [routerLink]="item.routerLink" routerLinkActive="active" >
+            <i class="bi {{ item.icon }}"></i>
+            {{ item.label }}
+          </a>
+        </ng-template>
+      </p-menu>
+    </div>
+
+    <div class="admin-button" *ngIf="isAdmin">
+      <p-button (click)="navigateToAdminPanel()"><i class="bi bi-shield-lock"></i></p-button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
