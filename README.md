@@ -43,7 +43,7 @@ To get started with this project, you can follow the steps below:
   npm run backend
 ```
 
-- To start the client navigate to .\client\ and run 
+- To start the client run
 ```bash
   npm start
 ```
